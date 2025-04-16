@@ -1,0 +1,24 @@
+{
+  "name": "minotaur_poker_database",
+  "version": "1.0.0",
+  "description": "Minotaur Poker Database API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ralphy105/Minotaur_Poker_Database.git"
+  },
+  "author": "Adin Lieblein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ralphy105/Minotaur_Poker_Database/issues"
+  },
+  "homepage": "https://github.com/Ralphy105/Minotaur_Poker_Database#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  }
+}
