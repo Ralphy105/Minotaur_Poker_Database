@@ -17,8 +17,14 @@
   },
   "homepage": "https://github.com/Ralphy105/Minotaur_Poker_Database#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "module-alias": "^2.2.3",
     "mongoose": "^8.13.2"
+  },
+  "_moduleAliases": {
+    "@": ".",
+    "@m": "./mongo"
   }
 }
