@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["*"],
+        "@m/*": ["mongo/*"] 
+      }
+    },
+    // "include": [
+    //   "mongo/**/*",    // Include the mongo directory for IntelliSense
+    //   "*.js"           // Include all JavaScript files in the subdirectory
+    // ]
+  }
