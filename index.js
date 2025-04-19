@@ -1,7 +1,7 @@
-require('dotenv').config();
-const { dbConnect } = require('./mongo/init.js');
+const dbConnect = require('./init');
 const fs = require('node:fs');
 const path = require('node:path');
+const cors = require('cors');
 const express = require('express');
 
 const endpointsPath = path.join(__dirname, 'endpoints');
@@ -9,9 +9,14 @@ const endpointFiles = fs.readdirSync(endpointsPath).filter(file => file.endsWith
 
 (async () => {
     const connection = await dbConnect();
-    if (connection) console.log('MongoDB connected successfully!');
+    if (!connection) process.exit(1);
+    
+    console.log('MongoDB connected successfully!');
 
     const app = express();
+    app.use(cors({
+        origin: 'null',
+    }));
     app.use(express.json());
     const PORT = process.env.PORT || 3000;
 
