@@ -16,7 +16,7 @@ const transactionSchema = new mongoose.Schema({
     discord_name: { type: String, required: false },
     platform: { type: String, enum: Object.values(Payment_Platform), required: true },
     paid_name: { type: String, required: true },
-}, { strict: true });
+}, { strict: true, timestamps: { createdAt: 'date_recorded', updatedAt: false } });
 
 // User Handles
 const paymentHandlesSchema = new mongoose.Schema({
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     clubgg_name: { type: String, required: true, default: '_UNKNOWN_' },
     discord_name: { type: String, required: false },
     payment_handles: { type: paymentHandlesSchema, required: true, default: {} },
-});
+}, { timestamps: { createdAt: 'date_recorded' } });
 userSchema.virtual('transactions', {
     ref: 'Transaction',
     localField: 'clubgg_id',
