@@ -38,7 +38,7 @@ userSchema.virtual('transactions', {
     ref: 'Transaction',
     localField: 'clubgg_id',
     foreignField: 'user',
-    justOne: true,
+    justOne: false
 });
 
 // Unrestricted schema for misc collection
