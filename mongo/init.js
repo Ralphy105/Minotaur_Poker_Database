@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 
-const connection = {};
-
 async function dbConnect() {
-    if (connection.isConnected) return true;
 
     try {
         let timeout;
@@ -17,14 +14,22 @@ async function dbConnect() {
         ]);
         clearTimeout(timeout); // In case mongoose.connect resolves before the timeout
 
-        connection.isConnected = db.connections[0].readyState;
-        return connection.isConnected == 1;
+        return db;
     } catch (err) {
         console.error(err);
         return false;
     }
 }
 
+async function dbDisconnect() {
+    try {
+        await mongoose.disconnect();
+    } catch (err) {
+        console.error('Error disconnecting from MongoDB:', err);
+    }
+}
+
 module.exports = {
     dbConnect,
+    dbDisconnect,
 };
